@@ -18,6 +18,9 @@
 		1511FCBC290D186400C42E1E /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511FCBB290D186400C42E1E /* DownloadsViewController.swift */; };
 		1511FCC4290D2C8A00C42E1E /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511FCC3290D2C8A00C42E1E /* CollectionViewTableViewCell.swift */; };
 		1511FCC7290D76F500C42E1E /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511FCC6290D76F500C42E1E /* HeroHeaderUIView.swift */; };
+		1511FCCA290E614900C42E1E /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511FCC9290E614900C42E1E /* APICaller.swift */; };
+		1511FCCD290E74B300C42E1E /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511FCCC290E74B300C42E1E /* Movie.swift */; };
+		1511FCF4290EB9D700C42E1E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511FCF3290EB9D600C42E1E /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		1511FCBB290D186400C42E1E /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		1511FCC3290D2C8A00C42E1E /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		1511FCC6290D76F500C42E1E /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
+		1511FCC9290E614900C42E1E /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		1511FCCC290E74B300C42E1E /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		1511FCF3290EB9D600C42E1E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,7 @@
 		1511FCC0290D2BD200C42E1E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1511FCCC290E74B300C42E1E /* Movie.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -119,6 +126,7 @@
 		1511FCC1290D2C0800C42E1E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1511FCF3290EB9D600C42E1E /* Extensions.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -126,6 +134,7 @@
 		1511FCC2290D2C1300C42E1E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				1511FCC9290E614900C42E1E /* APICaller.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -202,11 +211,14 @@
 				1511FCB9290D182B00C42E1E /* SearchViewController.swift in Sources */,
 				1511FCAE290D176100C42E1E /* MainTabBarViewController.swift in Sources */,
 				1511FCC4290D2C8A00C42E1E /* CollectionViewTableViewCell.swift in Sources */,
+				1511FCCA290E614900C42E1E /* APICaller.swift in Sources */,
 				1511FCC7290D76F500C42E1E /* HeroHeaderUIView.swift in Sources */,
 				1511FCBC290D186400C42E1E /* DownloadsViewController.swift in Sources */,
 				1511FC95290D141E00C42E1E /* AppDelegate.swift in Sources */,
+				1511FCF4290EB9D700C42E1E /* Extensions.swift in Sources */,
 				1511FC97290D141E00C42E1E /* SceneDelegate.swift in Sources */,
 				1511FCB6290D17FD00C42E1E /* UpcomingViewController.swift in Sources */,
+				1511FCCD290E74B300C42E1E /* Movie.swift in Sources */,
 				1511FCB2290D17B900C42E1E /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +361,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48KB556P8Y;
 				INFOPLIST_FILE = NetflixClone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -368,6 +381,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48KB556P8Y;
 				INFOPLIST_FILE = NetflixClone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
