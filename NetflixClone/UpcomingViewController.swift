@@ -8,14 +8,72 @@
 import UIKit
 
 class UpcomingViewController: UIViewController {
+    
+    private var movies: [Movie] = [Movie]()
+    
+    private let upcomingTable: UITableView = {
+        let table = UITableView()
+        table.register(UpcomingMovieTableViewCell.self, forCellReuseIdentifier: UpcomingMovieTableViewCell.cellId)
+        return table
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
+        title = "Upcoming"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationItem.largeTitleDisplayMode = .always
+        
+        view.addSubview(upcomingTable)
+        
+        upcomingTable.dataSource = self
+        upcomingTable.delegate = self
+        
+        getUpcomingMovies()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        upcomingTable.frame = view.bounds
+    }
+
+    private func getUpcomingMovies() {
+        APICaller.shared.getUpcomingMovies { [weak self] result in
+            switch result {
+            case .success(let movies):
+                self?.movies = movies
+                DispatchQueue.main.async {
+                    self?.upcomingTable.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }
+    }
 
 
+}
 
+extension UpcomingViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: UpcomingMovieTableViewCell.cellId, for: indexPath) as? UpcomingMovieTableViewCell else { return UITableViewCell() }
+        let movie = movies[indexPath.row]
+        cell.configure(with: MovieViewModel(movieName: (movie.name ?? movie.title) ?? "Unknown name", posterURL: movie.poster_path ?? ""))
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        140
+    }
+}
+
+extension UpcomingViewController: UITableViewDelegate {
+    
 }
