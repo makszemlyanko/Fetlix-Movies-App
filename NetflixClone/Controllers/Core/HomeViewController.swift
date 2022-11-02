@@ -39,6 +39,11 @@ class HomeViewController: UIViewController {
         
         let headerView = HeroHeaderUIView(frame: .init(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeMainTable.tableHeaderView = headerView
+        
+        // TEST
+        APICaller.shared.getMoviesFromYouTube(with: "Harry potter") { results in
+            
+        }
     }
     
     override func viewDidLayoutSubviews() {
