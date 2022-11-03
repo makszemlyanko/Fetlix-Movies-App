@@ -40,10 +40,7 @@ class HomeViewController: UIViewController {
         let headerView = HeroHeaderUIView(frame: .init(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeMainTable.tableHeaderView = headerView
         
-        // TEST
-        APICaller.shared.getMoviesFromYouTube(with: "Harry potter") { results in
-            
-        }
+        navigationController?.pushViewController(MoviePreviewViewController(), animated: true)
     }
     
     override func viewDidLayoutSubviews() {
@@ -61,7 +58,7 @@ class HomeViewController: UIViewController {
             UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
         ]
         
-        navigationController?.navigationBar.tintColor = .label
+        navigationController?.navigationBar.tintColor = .systemRed
     }
 }
 
@@ -161,7 +158,10 @@ extension HomeViewController: UITableViewDataSource {
     
 }
 
-extension HomeViewController: UITableViewDelegate {
-
+extension HomeViewController: CollectionViewTableViewCellDelegate {
+    
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: MoviePreviewViewModel) {
+        <#code#>
+    }
     
 }

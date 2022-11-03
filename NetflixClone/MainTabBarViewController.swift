@@ -19,7 +19,7 @@ class MainTabBarViewController: UITabBarController {
             setupController(viewController: DownloadsViewController(), image: UIImage(systemName: "arrow.down.to.line"), title: "Downloads")
         ], animated: true)
 
-        tabBar.tintColor = .label
+        tabBar.tintColor = .systemRed
     }
     
     private func setupController(viewController: UIViewController, image: UIImage?, title: String) -> UIViewController {

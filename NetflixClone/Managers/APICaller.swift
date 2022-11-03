@@ -65,9 +65,9 @@ class APICaller {
             guard let data = data, error == nil else { return  }
             do {
                 let results = try JSONDecoder().decode(YouTubeSearchResponse.self, from: data)
-                print(results)
+                completion(.success(results.items[0]))
             } catch {
-                print(error.localizedDescription)
+                completion(.failure(APIError.failedToGetData))
             }
         }
         task.resume()

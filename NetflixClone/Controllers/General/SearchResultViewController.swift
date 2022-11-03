@@ -23,6 +23,7 @@ class SearchResultViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
+        
         view.addSubview(searchResultCollectionView)
         
         searchResultCollectionView.delegate = self

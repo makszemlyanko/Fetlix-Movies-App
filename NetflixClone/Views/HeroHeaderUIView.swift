@@ -24,7 +24,8 @@ class HeroHeaderUIView: UIView {
         button.setTitle("Play", for: .normal)
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 1
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 6
+        button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -82,6 +83,4 @@ class HeroHeaderUIView: UIView {
         NSLayoutConstraint.activate(downloadButtonConstraint)
     }
     
-    
-
 }

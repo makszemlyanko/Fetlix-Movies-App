@@ -40,7 +40,7 @@ class SearchViewController: UIViewController {
         searchController.searchResultsUpdater = self
         
         navigationItem.searchController = searchController
-        navigationController?.navigationBar.tintColor = .label
+        navigationController?.navigationBar.tintColor = .systemRed
         
         getDiscoverMovies()
     }

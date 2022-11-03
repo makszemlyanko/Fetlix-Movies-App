@@ -24,6 +24,8 @@
 		1511FD09290FC37600C42E1E /* PosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511FD08290FC37600C42E1E /* PosterCollectionViewCell.swift */; };
 		1561BD5A291272D500BE2EF1 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1561BD59291272D500BE2EF1 /* SearchResultViewController.swift */; };
 		1561BD602912AAB900BE2EF1 /* YouTubeSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1561BD5F2912AAB900BE2EF1 /* YouTubeSearchResponse.swift */; };
+		1561BD632913AB6400BE2EF1 /* MoviePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1561BD622913AB6400BE2EF1 /* MoviePreviewViewController.swift */; };
+		1561BD662913B07E00BE2EF1 /* MoviePreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1561BD652913B07E00BE2EF1 /* MoviePreviewViewModel.swift */; };
 		157D154F290FF84400E000E8 /* UpcomingMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157D154E290FF84400E000E8 /* UpcomingMovieTableViewCell.swift */; };
 		157D1552291005B200E000E8 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157D1551291005B200E000E8 /* MovieViewModel.swift */; };
 		1B6914FE65BC4AFCBDEE3D2C /* Pods_NetflixClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373E97A26DFBABAA6F59BFBB /* Pods_NetflixClone.framework */; };
@@ -50,6 +52,8 @@
 		1511FD08290FC37600C42E1E /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		1561BD59291272D500BE2EF1 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		1561BD5F2912AAB900BE2EF1 /* YouTubeSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeSearchResponse.swift; sourceTree = "<group>"; };
+		1561BD622913AB6400BE2EF1 /* MoviePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewViewController.swift; sourceTree = "<group>"; };
+		1561BD652913B07E00BE2EF1 /* MoviePreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewViewModel.swift; sourceTree = "<group>"; };
 		157D154E290FF84400E000E8 /* UpcomingMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMovieTableViewCell.swift; sourceTree = "<group>"; };
 		157D1551291005B200E000E8 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		373E97A26DFBABAA6F59BFBB /* Pods_NetflixClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetflixClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				1561BD59291272D500BE2EF1 /* SearchResultViewController.swift */,
+				1561BD622913AB6400BE2EF1 /* MoviePreviewViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				157D1551291005B200E000E8 /* MovieViewModel.swift */,
+				1561BD652913B07E00BE2EF1 /* MoviePreviewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 			files = (
 				1511FCB9290D182B00C42E1E /* SearchViewController.swift in Sources */,
 				1511FCAE290D176100C42E1E /* MainTabBarViewController.swift in Sources */,
+				1561BD632913AB6400BE2EF1 /* MoviePreviewViewController.swift in Sources */,
 				1511FCC4290D2C8A00C42E1E /* CollectionViewTableViewCell.swift in Sources */,
 				1511FCCA290E614900C42E1E /* APICaller.swift in Sources */,
 				157D154F290FF84400E000E8 /* UpcomingMovieTableViewCell.swift in Sources */,
@@ -318,6 +325,7 @@
 				1511FD09290FC37600C42E1E /* PosterCollectionViewCell.swift in Sources */,
 				1511FCF4290EB9D700C42E1E /* Extensions.swift in Sources */,
 				1511FC97290D141E00C42E1E /* SceneDelegate.swift in Sources */,
+				1561BD662913B07E00BE2EF1 /* MoviePreviewViewModel.swift in Sources */,
 				1561BD602912AAB900BE2EF1 /* YouTubeSearchResponse.swift in Sources */,
 				157D1552291005B200E000E8 /* MovieViewModel.swift in Sources */,
 				1511FCB6290D17FD00C42E1E /* UpcomingViewController.swift in Sources */,
