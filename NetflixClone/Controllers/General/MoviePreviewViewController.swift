@@ -38,7 +38,6 @@ class MoviePreviewViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemRed
         button.layer.cornerRadius = 6
-        button.layer.masksToBounds = true
         button.setTitle("Download", for: .normal)
         button.setTitleColor(.white, for: .normal)
         return button
@@ -55,11 +54,12 @@ class MoviePreviewViewController: UIViewController {
         view.addSubview(downloadButton)
         
         setupConstraints()
+        
     }
     
     private func setupConstraints() {
         let webViewConstraints = [
-            webView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
+            webView.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
             webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             webView.heightAnchor.constraint(equalToConstant: 280)
@@ -72,7 +72,8 @@ class MoviePreviewViewController: UIViewController {
         
         let overviewLabelConstraints = [
             overviewLabel.topAnchor.constraint(equalTo: movieLabel.bottomAnchor, constant: 14),
-            overviewLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
+            overviewLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            overviewLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ]
         
         let downloadButtonConstraints = [

@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         view.addSubview(homeMainTable)
-        
+            
         homeMainTable.delegate = self
         homeMainTable.dataSource = self
         
@@ -39,8 +39,6 @@ class HomeViewController: UIViewController {
         
         let headerView = HeroHeaderUIView(frame: .init(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeMainTable.tableHeaderView = headerView
-        
-        navigationController?.pushViewController(MoviePreviewViewController(), animated: true)
     }
     
     override func viewDidLayoutSubviews() {
@@ -74,6 +72,8 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.cellId, for: indexPath) as? CollectionViewTableViewCell else { return UITableViewCell() }
+        
+        cell.delegate = self 
         
         switch indexPath.section {
         case Sections.TrendingMovies.rawValue:
@@ -158,10 +158,19 @@ extension HomeViewController: UITableViewDataSource {
     
 }
 
+extension HomeViewController: UITableViewDelegate {
+    
+}
+
 extension HomeViewController: CollectionViewTableViewCellDelegate {
     
     func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: MoviePreviewViewModel) {
-        <#code#>
+        DispatchQueue.main.async { [weak self] in
+            let vc = MoviePreviewViewController()
+            vc.configure(with: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+
     }
     
 }

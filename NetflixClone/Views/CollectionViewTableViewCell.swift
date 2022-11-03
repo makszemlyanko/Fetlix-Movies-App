@@ -21,8 +21,8 @@ class CollectionViewTableViewCell: UITableViewCell {
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 140, height: 200)
+        layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(PosterCollectionViewCell.self, forCellWithReuseIdentifier: PosterCollectionViewCell.cellId)
         return collectionView
@@ -34,6 +34,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         contentView.addSubview(collectionView)
         
         collectionView.backgroundColor = .systemBackground
+        
         collectionView.delegate = self
         collectionView.dataSource = self
     }
