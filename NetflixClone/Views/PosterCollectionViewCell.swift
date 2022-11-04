@@ -33,8 +33,8 @@ class PosterCollectionViewCell: UICollectionViewCell {
         posterImageView.frame = contentView.bounds
     }
     
-    public func configurePoster(path: String) {
-        guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(path)") else { return }
+    public func configurePoster(path movie: String) {
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(movie)") else { return }
         posterImageView.sd_setImage(with: url, completed: nil)
     }
 }

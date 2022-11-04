@@ -64,8 +64,8 @@ class APICaller {
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else { return  }
             do {
-                let results = try JSONDecoder().decode(YouTubeSearchResponse.self, from: data)
-                completion(.success(results.items[0]))
+                let results = try JSONDecoder().decode(YouTubeSearchResponse.self, from: data).items[0]
+                completion(.success(results))
             } catch {
                 completion(.failure(APIError.failedToGetData))
             }
@@ -78,8 +78,8 @@ class APICaller {
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else { return  }
             do {
-                let results = try JSONDecoder().decode(MoviesResponse.self, from: data)
-                completion(.success(results.results))
+                let results = try JSONDecoder().decode(MoviesResponse.self, from: data).results
+                completion(.success(results))
             } catch {
                 completion(.failure(APIError.failedToGetData))
             }

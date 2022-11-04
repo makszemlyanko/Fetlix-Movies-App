@@ -17,6 +17,9 @@ enum Sections: Int {
 
 class HomeViewController: UIViewController {
     
+    private var randomTrandingMovie: Movie?
+    private var headerView: HeroHeaderUIView?
+    
     private let sectionsTitles = ["Trending Movies", "Trending Tv", "Popular", "Upcoming Movies", "Top Rated"]
     
     private let homeMainTable: UITableView = {
@@ -37,8 +40,10 @@ class HomeViewController: UIViewController {
         
         configureNavBar()
         
-        let headerView = HeroHeaderUIView(frame: .init(x: 0, y: 0, width: view.bounds.width, height: 450))
+        headerView = HeroHeaderUIView(frame: .init(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeMainTable.tableHeaderView = headerView
+        
+        configureHeroHeaderView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -46,14 +51,27 @@ class HomeViewController: UIViewController {
         homeMainTable.frame = view.bounds
     }
     
+    private func configureHeroHeaderView() {
+        APICaller.shared.getTrendingMovies { [weak self] result in
+            switch result {
+            case .success(let movies):
+                let selectedMovie = movies.randomElement()
+                self?.randomTrandingMovie = selectedMovie
+                self?.headerView?.configureHeaderView(path: selectedMovie?.poster_path ?? "")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     private func configureNavBar() {
         var image = UIImage(named: "flogo")
         image = image?.withRenderingMode(.alwaysOriginal)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: nil)
         
         navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
-            UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
+            UIBarButtonItem(image: UIImage(systemName: "person"), style: .plain, target: self, action: nil),
+            UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .plain, target: self, action: nil)
         ]
         
         navigationController?.navigationBar.tintColor = .systemRed
