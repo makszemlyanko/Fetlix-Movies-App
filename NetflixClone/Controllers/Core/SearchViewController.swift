@@ -13,6 +13,7 @@ class SearchViewController: UIViewController {
 
     private let discoverTable: UITableView = {
         let table = UITableView()
+        table.backgroundColor = .systemBackground
         table.register(UpcomingMovieTableViewCell.self, forCellReuseIdentifier: UpcomingMovieTableViewCell.cellId)
         return table
     }()
@@ -27,7 +28,6 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemBackground
         title = "Top Search"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always

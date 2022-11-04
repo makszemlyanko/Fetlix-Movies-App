@@ -24,14 +24,14 @@ class HomeViewController: UIViewController {
     
     private let homeMainTable: UITableView = {
         let table = UITableView(frame:  .zero,style: .grouped)
+        table.backgroundColor = .systemBackground
+        table.separatorStyle = UITableViewCell.SeparatorStyle.none
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.cellId)
         return table
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .systemBackground
         
         view.addSubview(homeMainTable)
             
@@ -186,7 +186,8 @@ extension HomeViewController: CollectionViewTableViewCellDelegate {
         DispatchQueue.main.async { [weak self] in
             let vc = MoviePreviewViewController()
             vc.configure(with: viewModel)
-            self?.navigationController?.pushViewController(vc, animated: true)
+//            self?.navigationController?.pushViewController(vc, animated: true)
+            self?.navigationController?.showDetailViewController(vc, sender: nil)
         }
 
     }
