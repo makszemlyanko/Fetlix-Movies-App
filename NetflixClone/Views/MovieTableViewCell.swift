@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UpcomingMovieTableViewCell: UITableViewCell {
+class MovieTableViewCell: UITableViewCell {
 
     static let cellId = "UpcomingMovieTableViewCell"
     

@@ -59,6 +59,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         DataPersistenceManager.shared.downloadMovieWith(movie: movies[indexPath.item]) { result in
             switch result {
             case .success():
+                NotificationCenter.default.post(name: Notification.Name("downloaded"), object: nil)
                 print("Downloaded to database")
             case .failure(let error):
                 print(error.localizedDescription)

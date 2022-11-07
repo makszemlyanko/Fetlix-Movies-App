@@ -13,12 +13,13 @@ class DataPersistenceManager {
     
     enum DataBaseError: Error {
         case failedToSaveData
+        case failedToGetData
+        case failedToRemoveData
     }
      
     static let shared = DataPersistenceManager()
     
     func downloadMovieWith(movie: Movie, completion: @escaping (Result<Void, Error>) -> Void) {
-        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let context = appDelegate.persistentContainer.viewContext
@@ -43,6 +44,37 @@ class DataPersistenceManager {
         } catch {
             completion(.failure(DataBaseError.failedToSaveData ))
         }
+    }
+    
+    func getMoviesFromDataBase(completion: @escaping (Result<[MovieItem], Error>) -> Void) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request: NSFetchRequest<MovieItem>
+        request = MovieItem.fetchRequest()
+        
+        do {
+            let movies = try context.fetch(request)
+            completion(.success(movies))
+        } catch {
+            completion(.failure(DataBaseError.failedToGetData))
+        }
+    }
+    
+    func removeMovieWith(movie: MovieItem, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let context = appDelegate.persistentContainer.viewContext
+        
+        context.delete(movie)
+        
+        do {
+            try context.save()
+            completion(.success(()))
+        } catch {
+            completion(.failure(DataBaseError.failedToRemoveData))
+        } 
     }
      
 }
